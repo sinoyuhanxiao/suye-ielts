@@ -4,7 +4,7 @@ import { useRoute,useRouter } from 'vue-router'
 import { ElMessageBox } from 'element-plus'
 import { useLearningStore } from './stores/learning'
 const store=useLearningStore(),route=useRoute(),router=useRouter(),drawer=ref(false)
-const profilePicture='/profile.webp'
+const profilePicture=`${import.meta.env.BASE_URL}profile.webp`
 const nav=[['/','今日冲刺'],['/grammar','高回报句式'],['/linking','连接词'],['/vocabulary','高频替换'],['/speaking','口语故事'],['/letter','G 类书信'],['/essay','大作文'],['/drill','综合模拟']]
 const active=computed(()=>route.path)
 async function reset(){await ElMessageBox.confirm('确定清除全部学习记录吗？','重置记录',{type:'warning'});store.reset()}
